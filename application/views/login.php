@@ -8,8 +8,8 @@ $acara = str_replace("<petik>", "'", $acara);
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>SOAL DAN MAQRA' MUSABAQAH</title>
-    <meta name="description" content="Flat UI Kit Free is a Twitter Bootstrap Framework design and Theme, this responsive framework includes a PSD and HTML version."/>
+    <title><?php echo SITE_NAME?></title>
+    <meta name="description" content="<?php echo SITE_NAME?>"/>
 
     <meta name="viewport" content="width=1000, initial-scale=1.0, maximum-scale=1.0">
 
