@@ -33,6 +33,7 @@ class User_model extends CI_Model
         $this->password = md5($post['password']);
         $hasil = $this->db->get_where($this->_table, ['username' => $this->username, 'password' => $this->password])->row();
         if ($hasil) {
+            $this->session->set_userdata('username', $this->username);
             return true;
         } else {
             return false;

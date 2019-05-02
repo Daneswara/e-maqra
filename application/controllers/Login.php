@@ -42,8 +42,9 @@ class Login extends CI_Controller
 
         if ($validation->run()) {
             if($user->cekUserLogin()){
-                $data["pengaturan"] = $this->pengaturan_model->getPengaturan(1);
-                $this->load->view('hifzhil', $data);
+                redirect(base_url());
+            } else {
+                redirect(base_url('index.php/Login'));
             }
         }
     }

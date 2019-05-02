@@ -1,3 +1,4 @@
+<div style="text-align: center; margin-left: -220px; padding: 20px"><b><?php echo $pengaturan->acara;?></b><img style="margin-top: -10px" height="50px" src="<?php echo base_url('static/gambar/'.$pengaturan->logo);?>"></div>
 <nav class="navbar navbar-inverse navbar-lg navbar-embossed" role="navigation">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -11,11 +12,17 @@
     <div class="collapse navbar-collapse" id="navbar-collapse-8">
         <ul class="nav navbar-nav">
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Soal<b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Penjurian<b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li class="active"><a href="index.php">Tilawah dan MHQ</a></li>
+                    <li class="active"><a href="index.php">MHQ</a></li>
+                    <li><a href="index.php">Tilawah</a></li>
                     <li ><a href="tafsir.php">Tafsir</a></li>
                     <li ><a href="fahmil.php">MFQ</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tools<b class="caret"></b></a>
+                <ul class="dropdown-menu">
                     <li><a href="linkmushaf.php">Link Mushaf</a></li>
                     <li><a href="acak.php">Acak</a></li>
                 </ul>

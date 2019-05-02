@@ -350,7 +350,7 @@
 //    $namasurat = $surah['nama'];
 //    return $namasurat;
 //}
-?>
+//?>
 <html lang="en">
 <head>
     <?php $this->load->view('_partials/head.php')?>
@@ -383,7 +383,7 @@ if (isset($_GET['note'])) {
     body {
         padding-bottom: 20px;
         /*padding-top: 20px;*/
-        background-image: url("gambar/bg.jpg");
+        background-image: url(<?php echo base_url('static/gambar/bg.jpg')?>);
         background-repeat: repeat;
     }
     .navbar {
@@ -397,26 +397,25 @@ if (isset($_GET['note'])) {
 </style>
 
 <div class="container">
-    <div style="text-align: center; margin-left: -220px; padding: 20px"><b><?php echo $pengaturan->acara;?></b><img style="margin-top: -10px" height="50px" src="<?php echo base_url('static/gambar/'.$pengaturan->logo);?>"></div>
+
     <?php $this->load->view('_partials/menu.php')?>
-    </nav>
     <div class="row">
 
         <form method="GET">
             <div class="col-xs-6">
                 <div class="form-group">
                     <select name="kategori" class="form-control select select-primary" data-toggle="select" required>
-                        <?php
-                        $query_mysql = mysqli_query($koneksi, "SELECT * FROM kategori WHERE nama != 'Tafsir' ORDER BY urutan") or die(mysqli_error($koneksi));
-
-                        while ($data = mysqli_fetch_array($query_mysql)) {
-                            if ($pilihan == $data['index'] . "_" . $data['id']) {
-                                echo "<option value=" . $data['index'] . "_" . $data['id'] . " selected> " . $data['jenis'] . " " . $data['nama'] . " (Juz " . $data['index'] . ")" . "</option>";
-                            } else {
-                                echo "<option value=" . $data['index'] . "_" . $data['id'] . "> " . $data['jenis'] . " " . $data['nama'] . " (Juz " . $data['index'] . ")" . "</option>";
-                            }
-                        }
-                        ?>
+<!--                        --><?php
+//                        $query_mysql = mysqli_query($koneksi, "SELECT * FROM kategori WHERE nama != 'Tafsir' ORDER BY urutan") or die(mysqli_error($koneksi));
+//
+//                        while ($data = mysqli_fetch_array($query_mysql)) {
+//                            if ($pilihan == $data['index'] . "_" . $data['id']) {
+//                                echo "<option value=" . $data['index'] . "_" . $data['id'] . " selected> " . $data['jenis'] . " " . $data['nama'] . " (Juz " . $data['index'] . ")" . "</option>";
+//                            } else {
+//                                echo "<option value=" . $data['index'] . "_" . $data['id'] . "> " . $data['jenis'] . " " . $data['nama'] . " (Juz " . $data['index'] . ")" . "</option>";
+//                            }
+//                        }
+//                        ?>
 
                     </select></div>
             </div> <!-- /.col-xs-3 -->
@@ -510,7 +509,7 @@ if (isset($_GET['note'])) {
             echo "onclick='showSoal()'";
         }
         ?> >
-            <img src="gambar/kotak.png" class="img-responsive center-block">
+            <img src="<?php echo base_url('static/gambar/kotak.png');?>" class="img-responsive center-block">
             <!--<dl class="palette palette-alizarin" style="height: 200px">-->
             <?php
             if (isset($paket)) {
