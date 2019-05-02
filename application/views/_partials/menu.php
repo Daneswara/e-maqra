@@ -12,14 +12,22 @@
     <div class="collapse navbar-collapse" id="navbar-collapse-8">
         <ul class="nav navbar-nav">
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Penjurian<b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hifzhil<b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li class="active"><a href="index.php">MHQ</a></li>
-                    <li><a href="index.php">Tilawah</a></li>
-                    <li ><a href="tafsir.php">Tafsir</a></li>
-                    <li ><a href="fahmil.php">MFQ</a></li>
+                    <li class="active"><a href="index.php">Paket</a></li>
+                    <li ><a href="tafsir.php">Otomatis</a></li>
+                    <li ><a href="fahmil.php">Otomatis Terkelompok</a></li>
                 </ul>
             </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tilawah<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li class="active"><a href="index.php">Paket</a></li>
+                    <li ><a href="tafsir.php">Otomatis</a></li>
+                </ul>
+            </li>
+            <li ><a href="tafsir.php">Tafsir</a></li>
+            <li ><a href="tafsir.php">Fahmil</a></li>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tools<b class="caret"></b></a>
                 <ul class="dropdown-menu">
