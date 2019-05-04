@@ -31,7 +31,7 @@
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tools<b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li><a href="linkmushaf.php">Link Mushaf</a></li>
+                    <li><a href="<?php echo base_url('index.php/ToolsAcak/');?>">Link Mushaf</a></li>
                     <li><a href="acak.php">Acak</a></li>
                 </ul>
             </li>

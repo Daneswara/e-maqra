@@ -29,6 +29,6 @@ class ToolsAcak extends CI_Controller
     public function index()
     {
         $data["pengaturan"] = $this->pengaturan_model->getPengaturan(1);
-        $this->load->view('hifzhil', $data);
+        $this->load->view('linkmushaf', $data);
     }
 }

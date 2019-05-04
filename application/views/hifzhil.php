@@ -357,28 +357,28 @@
 </head>
 <body>
 <?php
-if (isset($_GET['not'])) {
-    $notifikasi = $_GET['not'];
-    if ($notifikasi == 1) {
-        echo "<script type='text/javascript'>swal({title: 'Login Berhasil!', confirmButtonColor: '#1abc9c', type: 'success'})</script>";
-    }
-}
-if (isset($_GET['note'])) {
-    $pilihan = $_GET['pilihan'];
-    $notifikasi = $_GET['note'];
-    if ($notifikasi == 1) {
-        echo "<script type='text/javascript'>swal({title: 'Berhasil!', text: 'Paket soal telah diacak', confirmButtonColor: '#1abc9c', type: 'success'})</script>";
-    } else if ($notifikasi == 12) {
-        echo "<script type='text/javascript'>swal({title: 'Gagal!', text: 'Paket soal telah habis, silahkan buat paket soal lagi atau gunakan Acak Otomatis!', confirmButtonColor: '#1abc9c', type: 'error'})</script>";
-    } else if ($notifikasi == 2) {
-        echo "<script type='text/javascript'>swal({title: 'Berhasil!', text: 'Acak otomatis telah dilakukan', confirmButtonColor: '#1abc9c', type: 'success'})</script>";
-    } else if ($notifikasi == 21) {
-        echo "<script type='text/javascript'>swal({title: 'Gagal!', text: 'Acak otomatis tidak dapat dilakukan, silahkan coba lagi!', confirmButtonColor: '#1abc9c', type: 'error'})</script>";
-    } else if ($notifikasi == 22) {
-        echo "<script type='text/javascript'>swal({title: 'Gagal!', text: 'Soal otomatis telah habis, silahkan lakukan reset Perlombaan untuk mengembalikan soal.', confirmButtonColor: '#1abc9c', type: 'error'})</script>";
-    }
-}
-?>
+//if (isset($_GET['not'])) {
+//    $notifikasi = $_GET['not'];
+//    if ($notifikasi == 1) {
+//        echo "<script type='text/javascript'>swal({title: 'Login Berhasil!', confirmButtonColor: '#1abc9c', type: 'success'})</script>";
+//    }
+//}
+//if (isset($_GET['note'])) {
+//    $pilihan = $_GET['pilihan'];
+//    $notifikasi = $_GET['note'];
+//    if ($notifikasi == 1) {
+//        echo "<script type='text/javascript'>swal({title: 'Berhasil!', text: 'Paket soal telah diacak', confirmButtonColor: '#1abc9c', type: 'success'})</script>";
+//    } else if ($notifikasi == 12) {
+//        echo "<script type='text/javascript'>swal({title: 'Gagal!', text: 'Paket soal telah habis, silahkan buat paket soal lagi atau gunakan Acak Otomatis!', confirmButtonColor: '#1abc9c', type: 'error'})</script>";
+//    } else if ($notifikasi == 2) {
+//        echo "<script type='text/javascript'>swal({title: 'Berhasil!', text: 'Acak otomatis telah dilakukan', confirmButtonColor: '#1abc9c', type: 'success'})</script>";
+//    } else if ($notifikasi == 21) {
+//        echo "<script type='text/javascript'>swal({title: 'Gagal!', text: 'Acak otomatis tidak dapat dilakukan, silahkan coba lagi!', confirmButtonColor: '#1abc9c', type: 'error'})</script>";
+//    } else if ($notifikasi == 22) {
+//        echo "<script type='text/javascript'>swal({title: 'Gagal!', text: 'Soal otomatis telah habis, silahkan lakukan reset Perlombaan untuk mengembalikan soal.', confirmButtonColor: '#1abc9c', type: 'error'})</script>";
+//    }
+//}
+//?>
 <style>
     body {
         padding-bottom: 20px;
