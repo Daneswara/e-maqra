@@ -24,6 +24,11 @@ class Fahmil extends CI_Controller
         parent::__construct();
         $this->load->model("pengaturan_model");
         $this->load->library('form_validation');
+
+        $username = $this->session->userdata('username');
+        if(!isset($username)){
+            redirect(base_url('index.php/Login'));
+        }
     }
 
     public function index()
