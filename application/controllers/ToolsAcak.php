@@ -23,6 +23,7 @@ class ToolsAcak extends CI_Controller
     {
         parent::__construct();
         $this->load->model("pengaturan_model");
+        $this->load->model("daftarsurah_model");
         $this->load->library('form_validation');
 
         $username = $this->session->userdata('username');
@@ -37,6 +38,7 @@ class ToolsAcak extends CI_Controller
         $acara = $data['pengaturan']->acara;
         $acara = str_replace("<petik>", "'", $acara);
         $data['acara'] = $acara;
+        $data['daftar_surah'] = $this->daftarsurah_model->getAllNamaSurah();
         $this->load->view('linkmushaf', $data);
     }
 

@@ -34,7 +34,7 @@
 //?>
 <html lang="en">
 <head>
-    <?php $this->load->view('_partials/head.php')?>
+    <?php $this->load->view('_partials/head.php') ?>
 </head>
 <body>
 
@@ -45,59 +45,73 @@
         background-image: url(<?php echo base_url('static/gambar/bg.jpg')?>);
         background-repeat: repeat;
     }
+
     .navbar {
         margin-bottom: 20px;
     }
+
     .bigtext {
         font-size: 1400%;
         text-align: center;
     }
-    .img-center {margin:0 auto;}
+
+    .img-center {
+        margin: 0 auto;
+    }
 </style>
 
 <div class="container">
-    <?php $this->load->view('_partials/menu.php')?>
+    <?php $this->load->view('_partials/menu.php') ?>
     <div class="row">
         <form method="GET" action="linkmushaf.php">
             <div class="col-xs-4">
                 <div class="form-group">
-                    <select name="surat1" id="surat1" class="form-control select select-primary" data-toggle="select" required>
-<!--                        --><?php
-//                        $query_mysql = mysqli_query($koneksi, "SELECT * FROM daftarsurah ORDER BY nosurat") or die(mysqli_error($koneksi));
-//                        $temp = "";
-//                        while ($data = mysqli_fetch_array($query_mysql)) {
-//                            if ($data['nama'] == $temp) {
-//
-//                            } else if ($tempsurat == $data['nosurat']) {
-//                                echo "<option value=" . $data['nosurat'] . " selected>" . $data['nosurat'] . ". " . $data['nama'] . "</option>";
-//                            } else {
-//                                echo "<option value=" . $data['nosurat'] . ">" . $data['nosurat'] . ". " . $data['nama'] . "</option>";
-//                            }
-//                            $temp = $data['nama'];
-//                        }
+                    <select name="surat1" id="surat1" class="form-control select select-primary" data-toggle="select"
+                            required>
+                        <?php
+                        $temp = "";
+                        foreach ($daftar_surah as $surah) {
+                            if ($surah->nama != $temp) {
+                                echo "<option value=" . $surah->nosurat . ">" . $surah->nosurat . ". " . $surah->nama . "</option>";
+                            }
+                            $temp = $data['nama'];
+                        }
+                        //                        $query_mysql = mysqli_query($koneksi, "SELECT * FROM daftarsurah ORDER BY nosurat") or die(mysqli_error($koneksi));
+                        //                        $temp = "";
+                        //                        while ($data = mysqli_fetch_array($query_mysql)) {
+                        //                            if ($data['nama'] == $temp) {
+                        //
+                        //                            } else if ($tempsurat == $data['nosurat']) {
+                        //                                echo "<option value=" . $data['nosurat'] . " selected>" . $data['nosurat'] . ". " . $data['nama'] . "</option>";
+                        //                            } else {
+                        //                                echo "<option value=" . $data['nosurat'] . ">" . $data['nosurat'] . ". " . $data['nama'] . "</option>";
+                        //                            }
+                        //                            $temp = $data['nama'];
+                        //                        }
                         ?>
 
                     </select></div>
             </div> <!-- /.col-xs-3 -->
             <div class="col-xs-4">
                 <div class="form-group">
-                    <select name="ayat1" id="ayat1" class="form-control select select-primary" data-toggle="select" required>
+                    <select name="ayat1" id="ayat1" class="form-control select select-primary" data-toggle="select"
+                            required>
 
-<!--                        --><?php
-//                        if (isset($tempayat)) {
-//                            $query_mysql = mysqli_query($koneksi, "SELECT * FROM daftarsurah WHERE nosurat = $tempsurat ORDER BY nosurat") or die(mysqli_error($koneksi));
-//                            echo "edit surat" . $where;
-//                            while ($data = mysqli_fetch_array($query_mysql)) {
-//
-//                                for ($a = $data['awal']; $a <= $data['akhir']; $a++) {
-//                                    if ($tempayat == $a) {
-//                                        echo "<option value=" . $a . " selected>" . $a . "</option>";
-//                                    } else {
-//                                        echo "<option value=" . $a . ">" . $a . "</option>";
-//                                    }
-//                                }
-//                            }
-//                        }
+                        <!--                        --><?php
+                        //                        if (isset($tempayat)) {
+                        //                            $query_mysql = mysqli_query($koneksi, "SELECT * FROM daftarsurah WHERE nosurat = $tempsurat ORDER BY nosurat") or die(mysqli_error($koneksi));
+                        //                            echo "edit surat" . $where;
+                        //                            while ($data = mysqli_fetch_array($query_mysql)) {
+                        //
+                        //                                for ($a = $data['awal']; $a <= $data['akhir']; $a++) {
+                        //                                    if ($tempayat == $a) {
+                        //                                        echo "<option value=" . $a . " selected>" . $a . "</option>";
+                        //                                    } else {
+                        //                                        echo "<option value=" . $a . ">" . $a . "</option>";
+                        //                                    }
+                        //                                }
+                        //                            }
+                        //                        }
                         ?>
 
                     </select></div>
@@ -129,6 +143,6 @@
 <!--        }-->
 <!--    });-->
 <!--</script>-->
-<?php $this->load->view('_partials/footer.php')?>
+<?php $this->load->view('_partials/footer.php') ?>
 </body>
 </html>
