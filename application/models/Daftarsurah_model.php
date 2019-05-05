@@ -22,4 +22,9 @@ class Daftarsurah_model extends CI_Model
         $this->db->order_by('nosurat', 'asc');
         return $this->db->get($this->_table)->result();
     }
+
+    function getJumlahAyat($nosurat){
+        $hasil = $this->db->get_where($this->_table, ['nosurat' => $nosurat])->last_row();
+        return $hasil->akhir;
+    }
 }

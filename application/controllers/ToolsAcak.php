@@ -42,6 +42,20 @@ class ToolsAcak extends CI_Controller
         $this->load->view('linkmushaf', $data);
     }
 
+    public function getJumlahAyat(){
+        $surat = $_POST['surah'];
+        $jumlah = $this->daftarsurah_model->getJumlahAyat($surat);
+        $msg = '';
+        if ($jumlah == 0) {
+            $msg .= "<option value=''>Tidak Ada Ayat</option>";
+        } else {
+            for ($a = 1; $a <= $jumlah; $a++) {
+                $msg .= "<option value='" . $a . "'>" . $a . "</option>";
+            }
+        }
+        echo $msg;
+    }
+
     public function getLink($surat, $ayat)
     {
         if (isset($_GET["surat1"]) && isset($_GET["ayat1"])) {

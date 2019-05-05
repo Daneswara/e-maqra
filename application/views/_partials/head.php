@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('static/js/sweetalert.css')?>">
 
     <link rel="shortcut icon" href="<?php echo base_url('static/img/favicon.ico')?>">
+    <script src="<?php echo base_url('static/js/jquery-1.10.2.js')?>"></script>
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
     <!--[if lt IE 9]>

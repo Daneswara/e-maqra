@@ -71,23 +71,8 @@
                         <?php
                         $temp = "";
                         foreach ($daftar_surah as $surah) {
-                            if ($surah->nama != $temp) {
-                                echo "<option value=" . $surah->nosurat . ">" . $surah->nosurat . ". " . $surah->nama . "</option>";
-                            }
-                            $temp = $data['nama'];
+                            echo "<option value=" . $surah->nosurat . ">" . $surah->nosurat . ". " . $surah->nama . "</option>";
                         }
-                        //                        $query_mysql = mysqli_query($koneksi, "SELECT * FROM daftarsurah ORDER BY nosurat") or die(mysqli_error($koneksi));
-                        //                        $temp = "";
-                        //                        while ($data = mysqli_fetch_array($query_mysql)) {
-                        //                            if ($data['nama'] == $temp) {
-                        //
-                        //                            } else if ($tempsurat == $data['nosurat']) {
-                        //                                echo "<option value=" . $data['nosurat'] . " selected>" . $data['nosurat'] . ". " . $data['nama'] . "</option>";
-                        //                            } else {
-                        //                                echo "<option value=" . $data['nosurat'] . ">" . $data['nosurat'] . ". " . $data['nama'] . "</option>";
-                        //                            }
-                        //                            $temp = $data['nama'];
-                        //                        }
                         ?>
 
                     </select></div>
@@ -125,24 +110,24 @@
 </div>
 
 
-<!--<script type="text/javascript">-->
-<!--    $(document).ready(function () {-->
-<!--        $("#surat1").change(function () {-->
-<!--            $.post("ajax/ayatgoto.php", {surah: $("#surat1").val()})-->
-<!--                .success(function (data) {-->
-<!--                    $("#ayat1").html(data);-->
-<!--                    $("#ayat1").change();-->
-<!--                });-->
-<!--        });-->
-<!--        if ($("#ayat1").val() == "" || $("#ayat1").val() == "0" || $("#ayat1").val() == null) {-->
-<!--            $.post("ajax/ayatgoto.php", {surah: $("#surat1").val()})-->
-<!--                .success(function (data) {-->
-<!--                    $("#ayat1").html(data);-->
-<!--                    $("#ayat1").change();-->
-<!--                });-->
-<!--        }-->
-<!--    });-->
-<!--</script>-->
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#surat1").change(function () {
+            $.post('<?php echo base_url('index.php/ToolsAcak/getJumlahAyat');?>', {surah: $("#surat1").val()})
+                .success(function (data) {
+                    $("#ayat1").html(data);
+                    $("#ayat1").change();
+                });
+        });
+        // if ($("#ayat1").val() == "" || $("#ayat1").val() == "0" || $("#ayat1").val() == null) {
+        //     $.post("ajax/ayatgoto.php", {surah: $("#surat1").val()})
+        //         .success(function (data) {
+        //             $("#ayat1").html(data);
+        //             $("#ayat1").change();
+        //         });
+        // }
+    });
+</script>
 <?php $this->load->view('_partials/footer.php') ?>
 </body>
 </html>
