@@ -1,4 +1,4 @@
-<div style="text-align: center; margin-left: -220px; padding: 20px"><b><?php echo $pengaturan->acara;?></b><img style="margin-top: -10px" height="50px" src="<?php echo base_url('static/gambar/'.$pengaturan->logo);?>"></div>
+<div style="text-align: center; margin-left: -220px; padding: 20px"><b><?php echo $acara;?></b><img style="margin-top: -10px" height="50px" src="<?php echo base_url('static/gambar/'.$pengaturan->logo);?>"></div>
 <nav class="navbar navbar-inverse navbar-lg navbar-embossed" role="navigation">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">

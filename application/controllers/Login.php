@@ -31,6 +31,9 @@ class Login extends CI_Controller
     public function index()
     {
         $data["pengaturan"] = $this->pengaturan_model->getPengaturan(1);
+        $acara = $data['pengaturan']->acara;
+        $acara = str_replace("<petik>", "'", $acara);
+        $data['acara'] = $acara;
         $this->load->view('login', $data);
     }
 

@@ -26,7 +26,7 @@ class ToolsAcak extends CI_Controller
         $this->load->library('form_validation');
 
         $username = $this->session->userdata('username');
-        if(!isset($username)){
+        if (!isset($username)) {
             redirect(base_url('index.php/Login'));
         }
     }
@@ -34,6 +34,9 @@ class ToolsAcak extends CI_Controller
     public function index()
     {
         $data["pengaturan"] = $this->pengaturan_model->getPengaturan(1);
+        $acara = $data['pengaturan']->acara;
+        $acara = str_replace("<petik>", "'", $acara);
+        $data['acara'] = $acara;
         $this->load->view('linkmushaf', $data);
     }
 }

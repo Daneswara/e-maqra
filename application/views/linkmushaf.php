@@ -1,14 +1,5 @@
 <?php
-//include "koneksi.php";
-//session_start();
-//if (empty($_SESSION['user_login'])) {
-//    header('location: login.php');
-//}
-//$queryview = mysqli_query($koneksi, "SELECT * FROM pengaturan LIMIT 1") or die(mysqli_error($koneksi));
-//$pengaturan = mysqli_fetch_array($queryview);
-//$acara = $pengaturan['acara'];
-//$acara = str_replace("<petik>", "'", $acara);
-//$logo = $pengaturan['logo'];
+
 //if(isset($_GET["surat1"]) && isset($_GET["ayat1"])){
 //    $tempsurat = $_GET["surat1"];
 //    $tempayat = $_GET["ayat1"];
