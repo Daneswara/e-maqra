@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class ToolsAcak extends CI_Controller
+class Mushaf extends CI_Controller
 {
 
     /**
@@ -62,6 +62,15 @@ class ToolsAcak extends CI_Controller
         $surah = mysqli_fetch_array($queryview);
         $namasurat = $surah['nama'];
         return $namasurat;
+    }
+
+    function view()
+    {
+        $data["pengaturan"] = $this->pengaturan_model->getPengaturan(1);
+        $acara = $data['pengaturan']->acara;
+        $acara = str_replace("<petik>", "'", $acara);
+        $data['acara'] = $acara;
+        $this->load->view('mushaf', $data);
     }
 
 }

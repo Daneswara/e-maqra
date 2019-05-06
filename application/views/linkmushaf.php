@@ -63,7 +63,7 @@
 <div class="container">
     <?php $this->load->view('_partials/menu.php') ?>
     <div class="row">
-        <form method="GET" action="linkmushaf.php">
+        <form method="GET" action="<?php echo base_url('index.php/Mushaf/view');?>">
             <div class="col-xs-4">
                 <div class="form-group">
                     <select name="surat1" id="surat1" class="form-control select select-primary" data-toggle="select"
@@ -81,24 +81,6 @@
                 <div class="form-group">
                     <select name="ayat1" id="ayat1" class="form-control select select-primary" data-toggle="select"
                             required>
-
-                        <!--                        --><?php
-                        //                        if (isset($tempayat)) {
-                        //                            $query_mysql = mysqli_query($koneksi, "SELECT * FROM daftarsurah WHERE nosurat = $tempsurat ORDER BY nosurat") or die(mysqli_error($koneksi));
-                        //                            echo "edit surat" . $where;
-                        //                            while ($data = mysqli_fetch_array($query_mysql)) {
-                        //
-                        //                                for ($a = $data['awal']; $a <= $data['akhir']; $a++) {
-                        //                                    if ($tempayat == $a) {
-                        //                                        echo "<option value=" . $a . " selected>" . $a . "</option>";
-                        //                                    } else {
-                        //                                        echo "<option value=" . $a . ">" . $a . "</option>";
-                        //                                    }
-                        //                                }
-                        //                            }
-                        //                        }
-                        ?>
-
                     </select></div>
             </div> <!-- /.col-xs-3 -->
             <div class="col-xs-4">
@@ -119,13 +101,13 @@
                     $("#ayat1").change();
                 });
         });
-        // if ($("#ayat1").val() == "" || $("#ayat1").val() == "0" || $("#ayat1").val() == null) {
-        //     $.post("ajax/ayatgoto.php", {surah: $("#surat1").val()})
-        //         .success(function (data) {
-        //             $("#ayat1").html(data);
-        //             $("#ayat1").change();
-        //         });
-        // }
+        if ($("#ayat1").val() == "" || $("#ayat1").val() == "0" || $("#ayat1").val() == null) {
+            $.post('<?php echo base_url('index.php/ToolsAcak/getJumlahAyat');?>', {surah: 1})
+                .success(function (data) {
+                    $("#ayat1").html(data);
+                    $("#ayat1").change();
+                });
+        }
     });
 </script>
 <?php $this->load->view('_partials/footer.php') ?>
