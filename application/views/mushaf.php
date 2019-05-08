@@ -1,48 +1,4 @@
-<?php
-//include "koneksi.php";
-//session_start();
-//if (!isset($_SESSION['user_login'])) {
-//    header('location:login.php');
-//    exit();
-//}
-if (!isset($_GET["kanan"])) {
-    $awal = 0;
-} else {
-    $awal = 1;
-}
-if (isset($_GET["kanan"])) {
-    $kanan = $_GET["kanan"];
-    if (isset($_GET["surah"]) && isset($_GET["ayat"])) {
-        $surah = $_GET["surah"];
-        $ayat = $_GET["ayat"];
-        $namasuratlink = $_GET["namasurat"];
-        $awal = 0;
-    } else {
-        $awal = 1;
-        $surah = 1;
-        $ayat = 1;
-    }
-} else {
-    $awal = 0;
-    $kanan = 1;
-    $surah = 1;
-    $ayat = 1;
-}
-if (isset($_GET["surahakhir"])) {
-    $surahakhir = $_GET["surahakhir"];
-    $ayatakhir = $_GET["ayatakhir"];
-    $akhirnamasurat = $_GET["akhirnamasurat"];
-    $akhirnamasuratlink = $_GET["akhirnamasurat"];
-    $akhirnamasurat = str_replace("petik", "'", $akhirnamasurat);
-    $sampai = "- $akhirnamasurat $surahakhir : $ayatakhir";
-}
-if ($kanan > 604 || $kanan < 1) {
-    $kanan = 1;
-}
-//$queryview = mysqli_query($koneksi, "SELECT * FROM pengaturan LIMIT 1") or die(mysqli_error($koneksi));
-//$pengaturan = mysqli_fetch_array($queryview);
-//$qori = $pengaturan['qori'];
-?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -208,11 +164,10 @@ if ($kanan > 604 || $kanan < 1) {
             echo 'style="display:none;"';
         }
         ?> >
-            <img id="besar" src="Mushaf/<?php echo $kanan ?>.png" class="gambar1"> 
+            <img id="besar" src="<?php echo base_url("static/Mushaf/$kanan.png")?>" class="gambar1">
         </div>
         <div id="kecil" >
-
-            <img  src="Mushaf/<?php echo $kanan ?>.png" class="gambar2 nav center-block">
+            <img src="<?php echo base_url("static/Mushaf/$kanan.png")?>" class="gambar2 nav center-block">
         </div>
 
         <div class="container" id="mushaf">
@@ -261,7 +216,7 @@ if ($kanan > 604 || $kanan < 1) {
         </div>
 
         <div id="alarm" hidden="" >
-            <img  src="gambar/alarm.gif" class="gambar3 nav">
+            <img src="<?php echo base_url("static/gambar/alarm.gif")?>" class="gambar3 nav">
         </div>
 
         <?php $this->load->view('_partials/footer.php') ?>
