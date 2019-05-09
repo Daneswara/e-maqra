@@ -26,8 +26,8 @@
                     <li ><a href="tafsir.php">Otomatis</a></li>
                 </ul>
             </li>
-            <li ><a href="tafsir.php">Tafsir</a></li>
-            <li ><a href="tafsir.php">Fahmil</a></li>
+            <li ><a href="<?php echo base_url('index.php/Tafsir/');?>">Tafsir</a></li>
+            <li ><a href="<?php echo base_url('index.php/Fahmil/');?>">Fahmil</a></li>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tools<b class="caret"></b></a>
                 <ul class="dropdown-menu">

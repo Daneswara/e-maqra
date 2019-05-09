@@ -37,6 +37,6 @@ class Fahmil extends CI_Controller
         $acara = $data['pengaturan']->acara;
         $acara = str_replace("<petik>", "'", $acara);
         $data['acara'] = $acara;
-        $this->load->view('hifzhil', $data);
+        $this->load->view('fahmil', $data);
     }
 }
