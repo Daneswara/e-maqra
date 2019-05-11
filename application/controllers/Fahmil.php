@@ -39,4 +39,7 @@ class Fahmil extends CI_Controller
         $data['acara'] = $acara;
         $this->load->view('fahmil', $data);
     }
+    public function getNamaSurah($surat){
+        $data = $this->Fahmil_model->getNamaSurat($surat);
+    }
 }
