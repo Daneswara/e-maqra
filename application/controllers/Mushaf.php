@@ -3,6 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Mushaf extends CI_Controller
 {
+    public $surah;
+    public $ayat;
+    public $namasuratlink;
+    public $surahakhir;
+    public $ayatakhir;
+    public $akhirnamasuratlink;
+    public $kanan;
 
     /**
      * Index Page for this controller.
@@ -23,6 +30,7 @@ class Mushaf extends CI_Controller
     {
         parent::__construct();
         $this->load->model("pengaturan_model");
+        $this->load->model("mushaf_model");
         $this->load->library('form_validation');
 
         $username = $this->session->userdata('username');
@@ -64,43 +72,62 @@ class Mushaf extends CI_Controller
         return $namasurat;
     }
 
+    function next($halaman)
+    {
+        $data['awal'] = 1;
+        $data['kanan'] = $halaman+1;
+        if($halaman+1 > 604){
+            $data['kanan'] = 1;
+        }
+        $this->load->view('mushaf', $data);
+    }
+
+    function back($halaman)
+    {
+        $data['awal'] = 1;
+        $data['kanan'] = $halaman-1;
+        if($halaman-1 < 1){
+            $data['kanan'] = 604;
+        }
+        $this->load->view('mushaf', $data);
+    }
+
     function view()
     {
-        $data["pengaturan"] = $this->pengaturan_model->getPengaturan(1);
-        $acara = $data['pengaturan']->acara;
-        $acara = str_replace("<petik>", "'", $acara);
-        $data['acara'] = $acara;
+        $post = $this->input->post();
+        $data['controller'] = $this;
 
-        if ($this->input->get('kanan')) {
-            $data['kanan'] = $this->input->get('kanan');
-            if ($this->input->get('surah') && $this->input->get('ayat')) {
-                $data['surah'] = $this->input->get('surah');
-                $data['ayat'] = $this->input->get('ayat');
-                $data['namasuratlink'] = $this->input->get('namasurat');
-                $data['awal'] = 0;
-            } else {
-                $data['awal'] = 1;
-                $data['surah'] = 1;
-                $data['ayat'] = 1;
-            }
+        if (isset($post['kanan'])) {
+            $this->kanan = $post['kanan'];
+        }
+        $this->surah = $post['surat1'];
+        $this->ayat = $post['ayat1'];
+//        $this->namasuratlink = $post['namasuratlink'];
+//        $this->surahakhir = $post['surahakhir'];
+//        $this->ayatakhir = $post['ayatakhir'];
+//        $this->akhirnamasuratlink = $post['akhirnamasuratlink'];
+
+        $this->kanan = $this->mushaf_model->getHalaman($this->surah, $this->ayat)->no_halaman;
+
+        if (isset($this->kanan)) {
+            $data['kanan'] = $this->kanan;
+            $data['awal'] = 1;
         } else {
             $data['awal'] = 0;
-            $data['surah'] = 1;
-            $data['ayat'] = 1;
             $data['kanan'] = 1;
         }
 
-        if ($this->input->get('suratakhir')) {
-            $data['surahakhir'] = $this->input->get('suratakhir');
-            $data['ayatakhir'] = $this->input->get('ayatakhir');
-            $data['akhirnamasurat'] = $this->input->get('akhirnamasurat');
-            $data['akhirnamasuratlink'] = $this->input->get('akhirnamasurat');
-            $data['akhirnamasurat'] = str_replace("petik", "'", $this->input->get('akhirnamasurat'));
-            $data['sampai'] = "- $this->input->get('akhirnamasurat') $this->input->get('suratakhir') : $this->input->get('ayatakhir')";
+//        if ($this->input->get('suratakhir')) {
+//            $data['surahakhir'] = $this->input->get('suratakhir');
+//            $data['ayatakhir'] = $this->input->get('ayatakhir');
+//            $data['akhirnamasurat'] = $this->input->get('akhirnamasurat');
+//            $data['akhirnamasuratlink'] = $this->input->get('akhirnamasurat');
+//            $data['akhirnamasurat'] = str_replace("petik", "'", $this->input->get('akhirnamasurat'));
+//            $data['sampai'] = "- $this->input->get('akhirnamasurat') $this->input->get('suratakhir') : $this->input->get('ayatakhir')";
+//
+//        }
 
-        }
-
-        if ($data['kanan'] > 604 || $data['kanan'] < 1) {
+        if ($this->kanan > 604 || $this->kanan < 1) {
             $data['kanan'] = 1;
         }
         $this->load->view('mushaf', $data);

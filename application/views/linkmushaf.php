@@ -63,7 +63,7 @@
 <div class="container">
     <?php $this->load->view('_partials/menu.php') ?>
     <div class="row">
-        <form method="GET" action="<?php echo base_url('index.php/Mushaf/view');?>">
+        <form method="POST" target="_blank" action="<?php echo base_url('index.php/Mushaf/view');?>">
             <div class="col-xs-4">
                 <div class="form-group">
                     <select name="surat1" id="surat1" class="form-control select select-primary" data-toggle="select"
