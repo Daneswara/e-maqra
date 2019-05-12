@@ -41,9 +41,11 @@
 <style>
     body {
         padding-bottom: 20px;
-        padding-top: 20px;
         background-image: url(<?php echo base_url('static/gambar/bg.jpg')?>);
         background-repeat: repeat;
+    }
+    .judul {
+        margin-right: -220px;
     }
 
     .navbar {
