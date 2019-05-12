@@ -48,30 +48,6 @@ class Mushaf extends CI_Controller
         $this->load->view('linkmushaf', $data);
     }
 
-    function getHalaman($surat, $ayat)
-    {
-        include "koneksi.php";
-        $queryview = mysqli_query($koneksi, "SELECT * FROM `halaman` WHERE nosurat = $surat and ayatawal <= $ayat ORDER BY no_halaman DESC LIMIT 1") or die(mysqli_error($koneksi));
-        $halaman = mysqli_fetch_array($queryview);
-        $kanan = $halaman['no_halaman'];
-        if (mysqli_num_rows($queryview) == 0) {
-            $surat = $surat - 1;
-            $queryview = mysqli_query($koneksi, "SELECT * FROM `halaman` WHERE nosurat = $surat ORDER BY no_halaman DESC LIMIT 1") or die(mysqli_error($koneksi));
-            $halaman = mysqli_fetch_array($queryview);
-            $kanan = $halaman['no_halaman'];
-        }
-        return $kanan;
-    }
-
-    function getNamaSurat($surat)
-    {
-        include "koneksi.php";
-        $queryview = mysqli_query($koneksi, "SELECT * FROM `daftarsurah` WHERE nosurat = $surat LIMIT 1") or die(mysqli_error($koneksi));
-        $surah = mysqli_fetch_array($queryview);
-        $namasurat = $surah['nama'];
-        return $namasurat;
-    }
-
     function next($halaman)
     {
         $data['awal'] = 1;
@@ -102,10 +78,6 @@ class Mushaf extends CI_Controller
         }
         $this->surah = $post['surat1'];
         $this->ayat = $post['ayat1'];
-//        $this->namasuratlink = $post['namasuratlink'];
-//        $this->surahakhir = $post['surahakhir'];
-//        $this->ayatakhir = $post['ayatakhir'];
-//        $this->akhirnamasuratlink = $post['akhirnamasuratlink'];
 
         $this->kanan = $this->mushaf_model->getHalaman($this->surah, $this->ayat)->no_halaman;
 
@@ -116,16 +88,6 @@ class Mushaf extends CI_Controller
             $data['awal'] = 0;
             $data['kanan'] = 1;
         }
-
-//        if ($this->input->get('suratakhir')) {
-//            $data['surahakhir'] = $this->input->get('suratakhir');
-//            $data['ayatakhir'] = $this->input->get('ayatakhir');
-//            $data['akhirnamasurat'] = $this->input->get('akhirnamasurat');
-//            $data['akhirnamasuratlink'] = $this->input->get('akhirnamasurat');
-//            $data['akhirnamasurat'] = str_replace("petik", "'", $this->input->get('akhirnamasurat'));
-//            $data['sampai'] = "- $this->input->get('akhirnamasurat') $this->input->get('suratakhir') : $this->input->get('ayatakhir')";
-//
-//        }
 
         if ($this->kanan > 604 || $this->kanan < 1) {
             $data['kanan'] = 1;
