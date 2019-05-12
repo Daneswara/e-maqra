@@ -18,7 +18,12 @@ class Mushaf_model extends CI_Model
     function getHalaman($surat, $ayat)
     {
         $this->db->order_by('no_halaman', 'desc');
-        return $this->db->get_where($this->_table, ['nosurat'=>$surat, 'ayatawal'=>$ayat])->row();
+        $halaman = $this->db->get_where($this->_table, ['nosurat'=>$surat, 'ayatawal'=>$ayat])->row();
+        if(!$halaman){
+            $this->db->order_by('no_halaman', 'desc');
+            $halaman = $this->db->get_where($this->_table, ['nosurat'=>$surat])->row();
+        }
+        return $halaman;
 //        include "koneksi.php";
 //        $queryview = mysqli_query($koneksi, "SELECT * FROM `halaman` WHERE nosurat = $surat and ayatawal <= $ayat ORDER BY no_halaman DESC LIMIT 1") or die(mysqli_error($koneksi));
 //        $halaman = mysqli_fetch_array($queryview);
