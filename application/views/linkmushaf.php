@@ -1,37 +1,3 @@
-<?php
-
-//if(isset($_GET["surat1"]) && isset($_GET["ayat1"])){
-//    $tempsurat = $_GET["surat1"];
-//    $tempayat = $_GET["ayat1"];
-//
-//    $hal = getHalaman($tempsurat, $tempayat);
-//    $namasurat = getNamaSurat($tempsurat);
-//    $namasurat = str_replace("'", "petik", $namasurat);
-//    echo "<script type=\"text/javascript\">  window.open('mushaf.php?kanan=$hal&surah=$tempsurat&ayat=$tempayat&namasurat=$namasurat')</script>";
-//}
-//
-//function getHalaman($surat, $ayat) {
-//    include "koneksi.php";
-//    $queryview = mysqli_query($koneksi, "SELECT * FROM `halaman` WHERE nosurat = $surat and ayatawal <= $ayat ORDER BY no_halaman DESC LIMIT 1") or die(mysqli_error($koneksi));
-//    $halaman = mysqli_fetch_array($queryview);
-//    $kanan = $halaman['no_halaman'];
-//    if (mysqli_num_rows($queryview) == 0) {
-//        $surat = $surat - 1;
-//        $queryview = mysqli_query($koneksi, "SELECT * FROM `halaman` WHERE nosurat = $surat ORDER BY no_halaman DESC LIMIT 1") or die(mysqli_error($koneksi));
-//        $halaman = mysqli_fetch_array($queryview);
-//        $kanan = $halaman['no_halaman'];
-//    }
-//    return $kanan;
-//}
-//
-//function getNamaSurat($surat) {
-//    include "koneksi.php";
-//    $queryview = mysqli_query($koneksi, "SELECT * FROM `daftarsurah` WHERE nosurat = $surat LIMIT 1") or die(mysqli_error($koneksi));
-//    $surah = mysqli_fetch_array($queryview);
-//    $namasurat = $surah['nama'];
-//    return $namasurat;
-//}
-//?>
 <html lang="en">
 <head>
     <?php $this->load->view('_partials/head.php') ?>
