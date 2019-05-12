@@ -14,9 +14,9 @@
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hifzhil<b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li class="active"><a href="index.php">Paket</a></li>
-                    <li ><a href="tafsir.php">Otomatis</a></li>
-                    <li ><a href="fahmil.php">Otomatis Terkelompok</a></li>
+                    <li class="active"><a href="<?php echo base_url('index.php/Hifzhil/');?>">Paket</a></li>
+                    <li ><a href="<?php echo base_url('index.php/Hifzhil/');?>">Otomatis</a></li>
+                    <li ><a href="<?php echo base_url('index.php/Hifzhil/');?>">Otomatis Terkelompok</a></li>
                 </ul>
             </li>
             <li class="dropdown">
