@@ -33,10 +33,18 @@ class Tafsir extends CI_Controller
 
     public function index()
     {
-        $data["pengaturan"] = $this->pengaturan_model->getPengaturan(1);
-        $acara = $data['pengaturan']->acara;
-        $acara = str_replace("<petik>", "'", $acara);
-        $data['acara'] = $acara;
+        // $data["pengaturan"] = $this->pengaturan_model->getPengaturan(1);
+        // $acara = $data['pengaturan']->acara;
+        // $acara = str_replace("<petik>", "'", $acara);
+        // $data['acara'] = $acara;
+        // $this->load->view('tafsir', $data);
+        
+        $data = $this->tafsir_model->listTafsir();
         $this->load->view('tafsir', $data);
+    }
+    public function list(){
+        // $data = $this->tafsir_model->listTafsir();
+        // $this->load->view('tafsir', $data);
+
     }
 }

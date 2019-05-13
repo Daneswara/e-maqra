@@ -51,14 +51,39 @@ class Mushaf_model extends CI_Model
 
     }
     function getAcak(){
-        $dbsoalke = array();
-        $jumlahsoal = 20;
-    if (isset($_GET['acak'])) {
-        $psoal = $_GET['acak'];
-        for ($i=1; $i <= $jumlahsoal; $i++) {
-            # code...
-            $dbsoalke[$i] = $i;
+            $dbsoalke = array();
+            $jumlahsoal = 20;
+        if (isset($_GET['acak'])) {
+            $psoal = $_GET['acak'];
+            for ($i=1; $i <= $jumlahsoal; $i++) {
+                # code...
+                $dbsoalke[$i] = $i;
+            }
         }
+
     }
+    function listTafsir(){
+
+        $query = $this->db->query('SELECT * FROM kategori where nama = "Tafsir" ORDER BY urutan');
+        // $this->db
+        // foreach  ($query->result_array() as $data){
+            // if ($pilihan == $data['index'] . "_" . $data['id']) {
+            //   $hasil =  echo "<option value=" . $data['index'] . "_" . $data['id'] . " selected> " . $data['jenis'] . " (Juz " . $data['index'] . ")" . "</option>";
+            // } else {
+                // $hasil = echo "<option value=" . $data['index'] . "_" . $data['id'] . "> " . $data['jenis'] . " (Juz " . $data['index'] . ")" . "</option>";
+        //     }
+        // }
+        $data = $query->result_array();
+        return $data;
+
+        // $query_mysql = mysqli_query($koneksi, "SELECT * FROM kategori where nama = 'Tafsir' ORDER BY urutan") or die(mysqli_error($koneksi));
+
+        // while ($data = mysqli_fetch_array($query_mysql)) {
+        //     if ($pilihan == $data['index'] . "_" . $data['id']) {
+        //         echo "<option value=" . $data['index'] . "_" . $data['id'] . " selected> " . $data['jenis'] . " (Juz " . $data['index'] . ")" . "</option>";
+        //     } else {
+        //         echo "<option value=" . $data['index'] . "_" . $data['id'] . "> " . $data['jenis'] . " (Juz " . $data['index'] . ")" . "</option>";
+        //     }
+        // }
     }
 }

@@ -405,17 +405,15 @@
             <div class="col-xs-6">
                 <div class="form-group">
                     <select name="kategori" class="form-control select select-primary" data-toggle="select" required>
-<!--                        --><?php
-//                        $query_mysql = mysqli_query($koneksi, "SELECT * FROM kategori WHERE nama != 'Tafsir' ORDER BY urutan") or die(mysqli_error($koneksi));
-//
-//                        while ($data = mysqli_fetch_array($query_mysql)) {
-//                            if ($pilihan == $data['index'] . "_" . $data['id']) {
-//                                echo "<option value=" . $data['index'] . "_" . $data['id'] . " selected> " . $data['jenis'] . " " . $data['nama'] . " (Juz " . $data['index'] . ")" . "</option>";
-//                            } else {
-//                                echo "<option value=" . $data['index'] . "_" . $data['id'] . "> " . $data['jenis'] . " " . $data['nama'] . " (Juz " . $data['index'] . ")" . "</option>";
-//                            }
-//                        }
-//                        ?>
+<?php
+        foreach  ($data as $data){
+            if ($pilihan == $data['index'] . "_" . $data['id']) {
+              echo "<option value=" . $data['index'] . "_" . $data['id'] . " selected> " . $data['jenis'] . " (Juz " . $data['index'] . ")" . "</option>";
+            } else {
+                 echo "<option value=" . $data['index'] . "_" . $data['id'] . "> " . $data['jenis'] . " (Juz " . $data['index'] . ")" . "</option>";
+            }
+        }
+                     ?>
 
                     </select></div>
             </div> <!-- /.col-xs-3 -->
