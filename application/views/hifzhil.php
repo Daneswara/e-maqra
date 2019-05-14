@@ -1,14 +1,4 @@
 <?php
-//include "koneksi.php";
-//session_start();
-//$queryview = mysqli_query($koneksi, "SELECT * FROM pengaturan LIMIT 1") or die(mysqli_error($koneksi));
-//$pengaturan = mysqli_fetch_array($queryview);
-//$acara = $pengaturan['acara'];
-//$acara = str_replace("<petik>", "'", $acara);
-//$logo = $pengaturan['logo'];
-//if (empty($_SESSION['user_login'])) {
-//    header('location: login.php');
-//}
 //if (isset($_GET['paket'])) {
 //    $psoal = $_GET['paket'];
 //    $queryview = mysqli_query($koneksi, "SELECT * FROM paket WHERE id = $psoal") or die(mysqli_error($koneksi));
@@ -353,7 +343,7 @@
 //?>
 <html lang="en">
 <head>
-    <?php $this->load->view('_partials/head.php')?>
+    <?php $this->load->view('_partials/head.php') ?>
 </head>
 <body>
 <?php
@@ -386,44 +376,50 @@
         background-image: url(<?php echo base_url('static/gambar/bg.jpg')?>);
         background-repeat: repeat;
     }
+
     .navbar {
         margin-bottom: 20px;
     }
+
     .bigtext {
         font-size: 1400%;
         text-align: center;
     }
-    .img-center {margin:0 auto;}
+
+    .img-center {
+        margin: 0 auto;
+    }
 </style>
 
 <div class="container">
 
-    <?php $this->load->view('_partials/menu.php')?>
+    <?php $this->load->view('_partials/menu.php') ?>
     <div class="row">
 
         <form method="GET">
             <div class="col-xs-6">
                 <div class="form-group">
                     <select name="kategori" class="form-control select select-primary" data-toggle="select" required>
-<!--                        --><?php
-//                        $query_mysql = mysqli_query($koneksi, "SELECT * FROM kategori WHERE nama != 'Tafsir' ORDER BY urutan") or die(mysqli_error($koneksi));
-//
-//                        while ($data = mysqli_fetch_array($query_mysql)) {
-//                            if ($pilihan == $data['index'] . "_" . $data['id']) {
-//                                echo "<option value=" . $data['index'] . "_" . $data['id'] . " selected> " . $data['jenis'] . " " . $data['nama'] . " (Juz " . $data['index'] . ")" . "</option>";
-//                            } else {
-//                                echo "<option value=" . $data['index'] . "_" . $data['id'] . "> " . $data['jenis'] . " " . $data['nama'] . " (Juz " . $data['index'] . ")" . "</option>";
-//                            }
-//                        }
+                        <?php
+                        foreach ($kategori as $data){
+                            if ($pilihan == $data->id) {
+                                echo "<option value=" . $data->index . "_" . $data->id . " selected> " . $data->jenis . " " . $data->nama . " (Juz " . $data->index . ")" . "</option>";
+                            } else {
+                                echo "<option value=" . $data->index . "_" . $data->id . "> " . $data->jenis . " " . $data->nama . " (Juz " . $data->index . ")" . "</option>";
+                            }
+                        }
 //                        ?>
 
                     </select></div>
             </div> <!-- /.col-xs-3 -->
             <div class="col-xs-3">
-                <button type="submit" formaction="acakpaket.php" class="btn btn-block btn-lg btn-primary">Acak Paket</button>
+                <button type="submit" formaction="acakpaket.php" class="btn btn-block btn-lg btn-primary">Acak Paket
+                </button>
             </div> <!-- /.col-xs-3 -->
             <div class="col-xs-3">
-                <button type="submit" formaction="acakmanual.php" class="btn btn-block btn-lg btn-primary">Acak Otomatis</button>
+                <button type="submit" formaction="acakmanual.php" class="btn btn-block btn-lg btn-primary">Acak
+                    Otomatis
+                </button>
             </div> <!-- /.col-xs-3 -->
         </form>
     </div> <!-- /.row -->
@@ -432,17 +428,19 @@
         .navbar {
             margin-bottom: 20px;
         }
+
         /* Jendela Pop Up */
         #popup {
             width: 100%;
             height: 100%;
             position: fixed;
-            background: rgba(0,0,0,.7);
+            background: rgba(0, 0, 0, .7);
             top: 0;
             left: 0;
             z-index: 9999;
             visibility: hidden;
         }
+
         /* Button Close */
         .close-button {
             width: 35px;
@@ -458,6 +456,7 @@
             top: -10px;
             right: -10px;
         }
+
         .window {
             width: 500px;
             height: 400px;
@@ -473,10 +472,12 @@
         #popup:target {
             visibility: visible;
         }
+
         .tengah {
             padding-top: 20%;
             text-align: center;
         }
+
         .tengah2 {
             z-index: 1000;
             padding-left: 9%;
@@ -486,16 +487,19 @@
             position: relative;
             color: white;
         }
+
         .kotak {
             margin-top: 100px;
             margin-left: 360px;
             margin-right: 360px;
             cursor: hand;
         }
-        #kotak2{
+
+        #kotak2 {
             margin-top: -200px;
             z-index: 10;
         }
+
         img {
             z-index: 1;
             position: absolute;
@@ -509,7 +513,7 @@
             echo "onclick='showSoal()'";
         }
         ?> >
-            <img src="<?php echo base_url('static/gambar/kotak.png');?>" class="img-responsive center-block">
+            <img src="<?php echo base_url('static/gambar/kotak.png'); ?>" class="img-responsive center-block">
             <!--<dl class="palette palette-alizarin" style="height: 200px">-->
             <?php
             if (isset($paket)) {
@@ -519,7 +523,8 @@
                 echo '<h5><div class="tengah2" style="padding-top: 50px; padding-left: 25px">Paket ';
                 echo "?";
             };
-            ?></div></h5>
+            ?></div>
+        </h5>
         <!--</dl>-->
     </div>
 </div>
@@ -557,11 +562,13 @@
     <div class="col-xs-3 col-md-3" style="margin-left: <?php echo $margin; ?>">
         <img src="<?php echo $gambar[0]; ?>" class="img-responsive center-block">
         <!--                        <dl class="palette palette-alizarin" style="height: 140px">-->
-        <dt><div class="tengah2"><?php
+        <dt>
+            <div class="tengah2"><?php
                 if (isset($surat[0])) {
                     echo "QS: " . $namasurat[0] . " " . $surat[0] . " : " . $ayat[0];
                 }
-                ?></div></dt>
+                ?></div>
+        </dt>
         <!--</dl>-->
     </div>
     <?php
@@ -584,11 +591,13 @@
     ?>>
         <img src="<?php echo $gambar[1]; ?>" class="img-responsive center-block">
         <!--<dl class="palette palette-alizarin" style="height: 140px">-->
-        <dt><div class="tengah2"><?php
+        <dt>
+            <div class="tengah2"><?php
                 if (isset($surat[1])) {
                     echo "QS: " . $namasurat[1] . " " . $surat[1] . " : " . $ayat[1];
                 }
-                ?></div></dt>
+                ?></div>
+        </dt>
         <!--</dl>-->
     </div>
 
@@ -612,11 +621,13 @@
     ?>>
         <img src="<?php echo $gambar[2]; ?>" class="img-responsive center-block">
         <!--<dl class="palette palette-alizarin" style="height: 140px">-->
-        <dt><div class="tengah2"><?php
+        <dt>
+            <div class="tengah2"><?php
                 if (isset($surat[2])) {
                     echo "QS: " . $namasurat[2] . " " . $surat[2] . " : " . $ayat[2];
                 }
-                ?></div></dt>
+                ?></div>
+        </dt>
         <!--</dl>-->
     </div>
     <?php
@@ -632,18 +643,21 @@
         }
     }
     ?>
-    <div class="col-xs-3 col-md-3" style="margin-left: <?php echo $margin1; ?>; margin-top: <?php echo $margin2; ?> " <?php
+    <div class="col-xs-3 col-md-3"
+         style="margin-left: <?php echo $margin1; ?>; margin-top: <?php echo $margin2; ?> " <?php
     if (!isset($surat[3])) {
         echo "hidden";
     }
     ?>>
         <img src="<?php echo $gambar[3]; ?>" class="img-responsive center-block">
         <!--<dl class="palette palette-alizarin" style="height: 140px">-->
-        <dt><div class="tengah2"><?php
+        <dt>
+            <div class="tengah2"><?php
                 if (isset($surat[3])) {
                     echo "QS: " . $namasurat[3] . " " . $surat[3] . " : " . $ayat[3];
                 }
-                ?></div></dt>
+                ?></div>
+        </dt>
         <!--</dl>-->
     </div>
     <?php
@@ -666,11 +680,13 @@
     ?>>
         <img src="<?php echo $gambar[4]; ?>" class="img-responsive center-block">
         <!--<dl class="palette palette-alizarin" style="height: 140px">-->
-        <dt><div class="tengah2"><?php
+        <dt>
+            <div class="tengah2"><?php
                 if (isset($surat[4])) {
                     echo "QS: " . $namasurat[4] . " " . $surat[4] . " : " . $ayat[4];
                 }
-                ?></div></dt>
+                ?></div>
+        </dt>
         <!--</dl>-->
     </div>
     <?php
@@ -693,11 +709,13 @@
     ?>>
         <img src="<?php echo $gambar[5]; ?>" class="img-responsive center-block">
         <!--<dl class="palette palette-alizarin" style="height: 140px">-->
-        <dt><div class="tengah2"><?php
+        <dt>
+            <div class="tengah2"><?php
                 if (isset($surat[5])) {
                     echo "QS: " . $namasurat[5] . " " . $surat[5] . " : " . $ayat[5];
                 }
-                ?></div></dt>
+                ?></div>
+        </dt>
         <!--</dl>-->
     </div>
     <?php
@@ -715,6 +733,7 @@
 
 <script>
     document.getElementById('kotak2').style.visibility = 'hidden';
+
     function showSoal() {
         document.getElementById('kotak1').style.visibility = 'hidden';
         document.getElementById('kotak2').style.visibility = 'visible';
@@ -722,6 +741,6 @@
 
 </script>
 
-<?php $this->load->view('_partials/footer.php')?>
+<?php $this->load->view('_partials/footer.php') ?>
 
 </body>

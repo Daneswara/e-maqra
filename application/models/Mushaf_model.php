@@ -24,17 +24,6 @@ class Mushaf_model extends CI_Model
             $halaman = $this->db->get_where($this->_table, ['nosurat'=>$surat])->row();
         }
         return $halaman;
-//        include "koneksi.php";
-//        $queryview = mysqli_query($koneksi, "SELECT * FROM `halaman` WHERE nosurat = $surat and ayatawal <= $ayat ORDER BY no_halaman DESC LIMIT 1") or die(mysqli_error($koneksi));
-//        $halaman = mysqli_fetch_array($queryview);
-//        $kanan = $halaman['no_halaman'];
-//        if (mysqli_num_rows($queryview) == 0) {
-//            $surat = $surat - 1;
-//            $queryview = mysqli_query($koneksi, "SELECT * FROM `halaman` WHERE nosurat = $surat ORDER BY no_halaman DESC LIMIT 1") or die(mysqli_error($koneksi));
-//            $halaman = mysqli_fetch_array($queryview);
-//            $kanan = $halaman['no_halaman'];
-//        }
-//        return $kanan;
     }
 
     function getNamaSurat($surat)
