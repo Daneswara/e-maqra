@@ -62,4 +62,41 @@ class Hifzhil extends CI_Controller
         $data['pilihan'] = $pilihan;
         $this->load->view('hifzhil', $data);
     }
+
+
+    public function acakHifzhilOtomatis()
+    {
+        $post = $this->input->post();
+        $getkat = $post['kategori'];
+        $where = $this->getWhere($getkat);
+
+
+        $pengaturan = $this->pengaturan_model->getPengaturan(1);
+        $jumlahsoal = $pengaturan->jumlahsoal + $pengaturan->jumlahsoalmudah;
+
+
+    }
+
+    public function getWhere($getkat){
+        $pecah = explode("_",$getkat);
+        $kategori = $pecah[0];
+
+        if (strpos($kategori, "-") != false) {
+            $kat = explode("-", $kategori);
+            $where = "juz >= $kat[0] AND juz <= $kat[1]";
+        } else if (strpos($kategori, ",")) {
+            $kat = explode(",", $kategori);
+            $where = "";
+            for ($i = 0; $i < count($kat); $i++) {
+                if ($i == count($kat) - 1) {
+                    $where .= "juz = $kat[$i]";
+                } else {
+                    $where .= "juz = $kat[$i] OR ";
+                }
+            }
+        } else {
+            $where = "juz = $kategori";
+        }
+        return $where;
+    }
 }

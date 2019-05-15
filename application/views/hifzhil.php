@@ -396,7 +396,7 @@
     <?php $this->load->view('_partials/menu.php') ?>
     <div class="row">
 
-        <form method="GET">
+        <form method="POST">
             <div class="col-xs-8">
                 <div class="form-group">
                     <select name="kategori" class="form-control select select-primary" data-toggle="select" required>
@@ -418,7 +418,7 @@
 <!--            </div> -->
     <!-- /.col-xs-3 -->
             <div class="col-xs-4">
-                <button type="submit" formaction="acakmanual.php" class="btn btn-block btn-lg btn-primary">Acak
+                <button type="submit" formaction="<?php echo base_url('index.php/Hifzhil/acakHifzhilOtomatis')?>" class="btn btn-block btn-lg btn-primary">Acak
                 </button>
             </div> <!-- /.col-xs-3 -->
         </form>

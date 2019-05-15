@@ -27,4 +27,11 @@ class Daftarsurah_model extends CI_Model
         $hasil = $this->db->get_where($this->_table, ['nosurat' => $nosurat])->last_row();
         return $hasil->akhir;
     }
+
+    function getJumlahSoal($where){
+        $this->db->order_by('id', 'asc');
+        $this->db->where($where);
+        $hasil = $this->db->get($this->_table)->result();
+
+    }
 }
