@@ -35,7 +35,27 @@ class Hifzhil extends CI_Controller
     public function index($pilihan = 1)
     {
         $data["pengaturan"] = $this->pengaturan_model->getPengaturan(1);
-        $data["kategori"] = $this->kategori_model->getKategori();
+        $data["kategori"] = $this->kategori_model->getKategoriHifzhilPaket();
+        $acara = $data['pengaturan']->acara;
+        $acara = str_replace("<petik>", "'", $acara);
+        $data['acara'] = $acara;
+        $data['pilihan'] = $pilihan;
+        $this->load->view('hifzhil', $data);
+    }
+    public function otomatis($pilihan = 1)
+    {
+        $data["pengaturan"] = $this->pengaturan_model->getPengaturan(1);
+        $data["kategori"] = $this->kategori_model->getKategoriHifzhilOtomatis();
+        $acara = $data['pengaturan']->acara;
+        $acara = str_replace("<petik>", "'", $acara);
+        $data['acara'] = $acara;
+        $data['pilihan'] = $pilihan;
+        $this->load->view('hifzhil', $data);
+    }
+    public function otomatisterkelompok($pilihan = 1)
+    {
+        $data["pengaturan"] = $this->pengaturan_model->getPengaturan(1);
+        $data["kategori"] = $this->kategori_model->getKategoriHifzhilOtomatisTerkelompok();
         $acara = $data['pengaturan']->acara;
         $acara = str_replace("<petik>", "'", $acara);
         $data['acara'] = $acara;

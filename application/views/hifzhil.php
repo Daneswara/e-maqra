@@ -397,7 +397,7 @@
     <div class="row">
 
         <form method="GET">
-            <div class="col-xs-6">
+            <div class="col-xs-8">
                 <div class="form-group">
                     <select name="kategori" class="form-control select select-primary" data-toggle="select" required>
                         <?php
@@ -412,13 +412,13 @@
 
                     </select></div>
             </div> <!-- /.col-xs-3 -->
-            <div class="col-xs-3">
-                <button type="submit" formaction="acakpaket.php" class="btn btn-block btn-lg btn-primary">Acak Paket
-                </button>
-            </div> <!-- /.col-xs-3 -->
-            <div class="col-xs-3">
+<!--            <div class="col-xs-3">-->
+<!--                <button type="submit" formaction="acakpaket.php" class="btn btn-block btn-lg btn-primary">Acak Paket-->
+<!--                </button>-->
+<!--            </div> -->
+    <!-- /.col-xs-3 -->
+            <div class="col-xs-4">
                 <button type="submit" formaction="acakmanual.php" class="btn btn-block btn-lg btn-primary">Acak
-                    Otomatis
                 </button>
             </div> <!-- /.col-xs-3 -->
         </form>
