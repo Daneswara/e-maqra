@@ -45,4 +45,10 @@ class Kategori_model extends CI_Model
         $kategori = $this->db->get_where($this->_table, ['nama!=' => 'Tafsir','type'=>5])->result();
         return $kategori;
     }
+    function getKategoriTafsir()
+    {
+        $this->db->order_by('urutan', 'asc');
+        $kategori = $this->db->get_where($this->_table, ['nama' => 'Tafsir'])->result();
+        return $kategori;
+    }
 }
