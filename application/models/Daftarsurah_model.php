@@ -32,6 +32,26 @@ class Daftarsurah_model extends CI_Model
         $this->db->order_by('id', 'asc');
         $this->db->where($where);
         $hasil = $this->db->get($this->_table)->result();
-
+        $data = 0;
+        foreach ($hasil as $daftar){
+            $data+= $daftar->akhir - $daftar->awal + 1;
+        }
+        return $data;
+    }
+    function getSuratdanAyat($where, $soal){
+        $this->db->order_by('id', 'asc');
+        $this->db->where($where);
+        $hasil = $this->db->get($this->_table)->result();
+        $data = array();
+        foreach ($hasil as $daftar){
+            $selisih = $daftar->akhir - $daftar->awal + 1;
+            $soal -= $selisih;
+            if ($soal < 0){
+                $data[0] = $daftar->nosurat;
+                $data[1] = $daftar->awal + $soal;
+                break;
+            }
+        }
+        return $data;
     }
 }

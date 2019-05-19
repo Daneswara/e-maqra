@@ -70,14 +70,14 @@ class Mushaf extends CI_Controller
 
     function view()
     {
-        $post = $this->input->post();
+        $get = $this->input->get();
         $data['controller'] = $this;
 
-        if (isset($post['kanan'])) {
-            $this->kanan = $post['kanan'];
-        }
-        $this->surah = $post['surat1'];
-        $this->ayat = $post['ayat1'];
+//        if (isset($post['kanan'])) {
+//            $this->kanan = $post['kanan'];
+//        }
+        $this->surah = $get['surat'];
+        $this->ayat = $get['ayat'];
 
         $this->kanan = $this->mushaf_model->getHalaman($this->surah, $this->ayat)->no_halaman;
 

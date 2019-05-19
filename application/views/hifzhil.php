@@ -340,7 +340,8 @@
 //    $namasurat = $surah['nama'];
 //    return $namasurat;
 //}
-//?>
+//
+?>
 <html lang="en">
 <head>
     <?php $this->load->view('_partials/head.php') ?>
@@ -509,11 +510,11 @@
 
     <div class="row" id="kotak1" name="kotak1" style="padding-left: 25px">
         <div class="kotak" <?php
-        if (isset($paket)) {
+        if (isset($paket) || isset($surat[0])) {
             echo "onclick='showSoal()'";
         }
         ?> >
-            <img src="<?php echo base_url('static/gambar/kotak.png'); ?>" class="img-responsive center-block">
+            <img src="<?php echo base_url('static/gambar/kotak.png'); ?>" class="img-responsive center-block"/>
             <!--<dl class="palette palette-alizarin" style="height: 200px">-->
             <?php
             if (isset($paket)) {
@@ -731,6 +732,7 @@
 <br>
 <br>
 
+<?php $this->load->view('_partials/footer.php') ?>
 <script>
     document.getElementById('kotak2').style.visibility = 'hidden';
 
@@ -741,6 +743,5 @@
 
 </script>
 
-<?php $this->load->view('_partials/footer.php') ?>
 
 </body>

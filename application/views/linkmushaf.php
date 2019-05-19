@@ -31,10 +31,10 @@
 <div class="container">
     <?php $this->load->view('_partials/menu.php') ?>
     <div class="row">
-        <form method="POST" target="_blank" action="<?php echo base_url('index.php/Mushaf/view');?>">
+        <form method="GET" target="_blank" action="<?php echo base_url('index.php/Mushaf/view');?>">
             <div class="col-xs-4">
                 <div class="form-group">
-                    <select name="surat1" id="surat1" class="form-control select select-primary" data-toggle="select"
+                    <select name="surat" id="surat" class="form-control select select-primary" data-toggle="select"
                             required>
                         <?php
                         $temp = "";
@@ -47,7 +47,7 @@
             </div> <!-- /.col-xs-3 -->
             <div class="col-xs-4">
                 <div class="form-group">
-                    <select name="ayat1" id="ayat1" class="form-control select select-primary" data-toggle="select"
+                    <select name="ayat" id="ayat" class="form-control select select-primary" data-toggle="select"
                             required>
                     </select></div>
             </div> <!-- /.col-xs-3 -->
@@ -62,18 +62,18 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-        $("#surat1").change(function () {
-            $.post('<?php echo base_url('index.php/ToolsAcak/getJumlahAyat');?>', {surah: $("#surat1").val()})
+        $("#surat").change(function () {
+            $.post('<?php echo base_url('index.php/ToolsAcak/getJumlahAyat');?>', {surah: $("#surat").val()})
                 .success(function (data) {
-                    $("#ayat1").html(data);
-                    $("#ayat1").change();
+                    $("#ayat").html(data);
+                    $("#ayat").change();
                 });
         });
-        if ($("#ayat1").val() == "" || $("#ayat1").val() == "0" || $("#ayat1").val() == null) {
+        if ($("#ayat").val() == "" || $("#ayat").val() == "0" || $("#ayat").val() == null) {
             $.post('<?php echo base_url('index.php/ToolsAcak/getJumlahAyat');?>', {surah: 1})
                 .success(function (data) {
-                    $("#ayat1").html(data);
-                    $("#ayat1").change();
+                    $("#ayat").html(data);
+                    $("#ayat").change();
                 });
         }
     });
