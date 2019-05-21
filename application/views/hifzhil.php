@@ -554,9 +554,10 @@
     for ($i=0;$i < count($surat);$i++){
         $namasurat1 = str_replace("'", "petik", $namasurat[$i]);
         if (isset($akhirsoal[$i])) {
-            echo "<a target='_blank' href='mushaf.php?kanan=$kanan[$i]&surah=$surat[$i]&ayat=$ayat[$i]&namasurat=$namasurat1$akhirsoal[$i]'>";
+            echo "<a target='_blank' href='". base_url('index.php/Mushaf/view?surat='.$surat[$i].'&ayat='.$ayat[$i])."'>";
         } else {
-            echo "<a target='_blank' href='mushaf.php?kanan=$kanan[$i]&surah=$surat[$i]&ayat=$ayat[$i]&namasurat=$namasurat1'>";
+            echo "<a target='_blank' href='". base_url('index.php/Mushaf/view?surat='.$surat[$i].'&ayat='.$ayat[$i])."'>";
+            //echo "<a target='_blank' href='mushaf.php?kanan=$kanan[$i]&surah=$surat[$i]&ayat=$ayat[$i]&namasurat=$namasurat1'>";
         }
         ?>
     <div class="col-xs-3 col-md-3" style="margin-left: <?php if($i == 0 || $i == 3){ echo $margin; }?>;

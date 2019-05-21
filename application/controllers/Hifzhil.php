@@ -81,7 +81,7 @@ class Hifzhil extends CI_Controller
         $jumlahsoal = $pengaturan->jumlahsoal + $pengaturan->jumlahsoalmudah;
 
         $jsoal = $this->alquran_model->getSoal($where);
-        for ($i = 0; $i < $jumlahsoal+1; $i++) {
+        for ($i = 0; $i < $jumlahsoal; $i++) {
             $soal = random_int(0, count($jsoal) - 1);
 //            $db = $this->daftarsurah_model->getSuratdanAyat($where, $soal);
 //            $cek = $this->penjurian_model->getSoal($db[0], $db[1]);
