@@ -551,177 +551,28 @@
         $margin1 = "125px";
         $margin2 = "110px";
     }
-    if (isset($surat[0])) {
-        $namasurat1 = str_replace("'", "petik", $namasurat[0]);
-        if (isset($akhirsoal[0])) {
-            echo "<a target='_blank' href='mushaf.php?kanan=$kanan[0]&surah=$surat[0]&ayat=$ayat[0]&namasurat=$namasurat1$akhirsoal[0]'>";
+    for ($i=0;$i < count($surat);$i++){
+        $namasurat1 = str_replace("'", "petik", $namasurat[$i]);
+        if (isset($akhirsoal[$i])) {
+            echo "<a target='_blank' href='mushaf.php?kanan=$kanan[$i]&surah=$surat[$i]&ayat=$ayat[$i]&namasurat=$namasurat1$akhirsoal[$i]'>";
         } else {
-            echo "<a target='_blank' href='mushaf.php?kanan=$kanan[0]&surah=$surat[0]&ayat=$ayat[0]&namasurat=$namasurat1'>";
+            echo "<a target='_blank' href='mushaf.php?kanan=$kanan[$i]&surah=$surat[$i]&ayat=$ayat[$i]&namasurat=$namasurat1'>";
         }
-    }
-    ?>
-    <div class="col-xs-3 col-md-3" style="margin-left: <?php echo $margin; ?>">
-        <img src="<?php echo $gambar[0]; ?>" class="img-responsive center-block">
+        ?>
+    <div class="col-xs-3 col-md-3" style="margin-left: <?php if($i == 0 || $i == 3){ echo $margin; }?>;
+            margin-top: <?php if($i >= 3) {echo $margin2;} ?>;">
+        <img src="<?php echo $gambar[$i]; ?>" class="img-responsive center-block">
         <!--                        <dl class="palette palette-alizarin" style="height: 140px">-->
         <dt>
             <div class="tengah2"><?php
-                if (isset($surat[0])) {
-                    echo "QS: " . $namasurat[0] . " " . $surat[0] . " : " . $ayat[0];
+                if (isset($surat[$i])) {
+                    echo "QS: " . $namasurat[$i] . " " . $surat[$i] . " : " . $ayat[$i];
                 }
                 ?></div>
         </dt>
         <!--</dl>-->
     </div>
     <?php
-    if (isset($surat[0])) {
-        echo "</a>";
-    }
-    if (isset($surat[1])) {
-        $namasurat1 = str_replace("'", "petik", $namasurat[1]);
-        if (isset($akhirsoal[1])) {
-            echo "<a target='_blank' href='mushaf.php?kanan=$kanan[1]&surah=$surat[1]&ayat=$ayat[1]&namasurat=$namasurat1$akhirsoal[1]'>";
-        } else {
-            echo "<a target='_blank' href='mushaf.php?kanan=$kanan[1]&surah=$surat[1]&ayat=$ayat[1]&namasurat=$namasurat1'>";
-        }
-    }
-    ?>
-    <div class="col-xs-3 col-md-3" <?php
-    if (!isset($surat[1])) {
-        echo "hidden";
-    }
-    ?>>
-        <img src="<?php echo $gambar[1]; ?>" class="img-responsive center-block">
-        <!--<dl class="palette palette-alizarin" style="height: 140px">-->
-        <dt>
-            <div class="tengah2"><?php
-                if (isset($surat[1])) {
-                    echo "QS: " . $namasurat[1] . " " . $surat[1] . " : " . $ayat[1];
-                }
-                ?></div>
-        </dt>
-        <!--</dl>-->
-    </div>
-
-    <?php
-    if (isset($surat[1])) {
-        echo "</a>";
-    }
-    if (isset($surat[2])) {
-        $namasurat1 = str_replace("'", "petik", $namasurat[2]);
-        if (isset($akhirsoal[2])) {
-            echo "<a target='_blank' href='mushaf.php?kanan=$kanan[2]&surah=$surat[2]&ayat=$ayat[2]&namasurat=$namasurat1$akhirsoal[2]'>";
-        } else {
-            echo "<a target='_blank' href='mushaf.php?kanan=$kanan[2]&surah=$surat[2]&ayat=$ayat[2]&namasurat=$namasurat1'>";
-        }
-    }
-    ?>
-    <div class="col-xs-3 col-md-3" <?php
-    if (!isset($surat[2])) {
-        echo "hidden";
-    }
-    ?>>
-        <img src="<?php echo $gambar[2]; ?>" class="img-responsive center-block">
-        <!--<dl class="palette palette-alizarin" style="height: 140px">-->
-        <dt>
-            <div class="tengah2"><?php
-                if (isset($surat[2])) {
-                    echo "QS: " . $namasurat[2] . " " . $surat[2] . " : " . $ayat[2];
-                }
-                ?></div>
-        </dt>
-        <!--</dl>-->
-    </div>
-    <?php
-    if (isset($surat[2])) {
-        echo "</a>";
-    }
-    if (isset($surat[3])) {
-        $namasurat1 = str_replace("'", "petik", $namasurat[3]);
-        if (isset($akhirsoal[3])) {
-            echo "<a target='_blank' href='mushaf.php?kanan=$kanan[3]&surah=$surat[3]&ayat=$ayat[3]&namasurat=$namasurat1$akhirsoal[3]'>";
-        } else {
-            echo "<a target='_blank' href='mushaf.php?kanan=$kanan[3]&surah=$surat[3]&ayat=$ayat[3]&namasurat=$namasurat1'>";
-        }
-    }
-    ?>
-    <div class="col-xs-3 col-md-3"
-         style="margin-left: <?php echo $margin1; ?>; margin-top: <?php echo $margin2; ?> " <?php
-    if (!isset($surat[3])) {
-        echo "hidden";
-    }
-    ?>>
-        <img src="<?php echo $gambar[3]; ?>" class="img-responsive center-block">
-        <!--<dl class="palette palette-alizarin" style="height: 140px">-->
-        <dt>
-            <div class="tengah2"><?php
-                if (isset($surat[3])) {
-                    echo "QS: " . $namasurat[3] . " " . $surat[3] . " : " . $ayat[3];
-                }
-                ?></div>
-        </dt>
-        <!--</dl>-->
-    </div>
-    <?php
-    if (isset($surat[3])) {
-        echo "</a>";
-    }
-    if (isset($surat[4])) {
-        $namasurat1 = str_replace("'", "petik", $namasurat[4]);
-        if (isset($akhirsoal[4])) {
-            echo "<a target='_blank' href='mushaf.php?kanan=$kanan[4]&surah=$surat[4]&ayat=$ayat[4]&namasurat=$namasurat1$akhirsoal[4]'>";
-        } else {
-            echo "<a target='_blank' href='mushaf.php?kanan=$kanan[4]&surah=$surat[4]&ayat=$ayat[4]&namasurat=$namasurat1'>";
-        }
-    }
-    ?>
-    <div class="col-xs-3 col-md-3" style="margin-top: <?php echo $margin2; ?> "<?php
-    if (!isset($surat[4])) {
-        echo "hidden";
-    }
-    ?>>
-        <img src="<?php echo $gambar[4]; ?>" class="img-responsive center-block">
-        <!--<dl class="palette palette-alizarin" style="height: 140px">-->
-        <dt>
-            <div class="tengah2"><?php
-                if (isset($surat[4])) {
-                    echo "QS: " . $namasurat[4] . " " . $surat[4] . " : " . $ayat[4];
-                }
-                ?></div>
-        </dt>
-        <!--</dl>-->
-    </div>
-    <?php
-    if (isset($surat[4])) {
-        echo "</a>";
-    }
-    if (isset($surat[5])) {
-        $namasurat1 = str_replace("'", "petik", $namasurat[5]);
-        if (isset($akhirsoal[5])) {
-            echo "<a target='_blank' href='mushaf.php?kanan=$kanan[5]&surah=$surat[5]&ayat=$ayat[5]&namasurat=$namasurat1$akhirsoal[5]'>";
-        } else {
-            echo "<a target='_blank' href='mushaf.php?kanan=$kanan[5]&surah=$surat[5]&ayat=$ayat[5]&namasurat=$namasurat1'>";
-        }
-    }
-    ?>
-    <div class="col-xs-3 col-md-3" style="margin-top: <?php echo $margin2; ?> "<?php
-    if (!isset($surat[5])) {
-        echo "hidden";
-    }
-    ?>>
-        <img src="<?php echo $gambar[5]; ?>" class="img-responsive center-block">
-        <!--<dl class="palette palette-alizarin" style="height: 140px">-->
-        <dt>
-            <div class="tengah2"><?php
-                if (isset($surat[5])) {
-                    echo "QS: " . $namasurat[5] . " " . $surat[5] . " : " . $ayat[5];
-                }
-                ?></div>
-        </dt>
-        <!--</dl>-->
-    </div>
-    <?php
-    if (isset($surat[5])) {
-        echo "</a>";
     }
     ?>
 </div>
