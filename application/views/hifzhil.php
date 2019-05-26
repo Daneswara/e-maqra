@@ -402,24 +402,25 @@
                 <div class="form-group">
                     <select name="kategori" class="form-control select select-primary" data-toggle="select" required>
                         <?php
-                        foreach ($kategori as $data){
+                        foreach ($kategori as $data) {
                             if ($pilihan == $data->id) {
                                 echo "<option value=" . $data->index . "_" . $data->id . " selected> " . $data->jenis . " " . $data->nama . " (Juz " . $data->index . ")" . "</option>";
                             } else {
                                 echo "<option value=" . $data->index . "_" . $data->id . "> " . $data->jenis . " " . $data->nama . " (Juz " . $data->index . ")" . "</option>";
                             }
                         }
-//                        ?>
+                        //                        ?>
 
                     </select></div>
             </div> <!-- /.col-xs-3 -->
-<!--            <div class="col-xs-3">-->
-<!--                <button type="submit" formaction="acakpaket.php" class="btn btn-block btn-lg btn-primary">Acak Paket-->
-<!--                </button>-->
-<!--            </div> -->
-    <!-- /.col-xs-3 -->
+            <!--            <div class="col-xs-3">-->
+            <!--                <button type="submit" formaction="acakpaket.php" class="btn btn-block btn-lg btn-primary">Acak Paket-->
+            <!--                </button>-->
+            <!--            </div> -->
+            <!-- /.col-xs-3 -->
             <div class="col-xs-4">
-                <button type="submit" formaction="<?php echo base_url('index.php/Hifzhil/acakHifzhilOtomatis')?>" class="btn btn-block btn-lg btn-primary">Acak
+                <button type="submit" formaction="<?php echo base_url('index.php/Hifzhil/acakHifzhilOtomatis') ?>"
+                        class="btn btn-block btn-lg btn-primary">Acak
                 </button>
             </div> <!-- /.col-xs-3 -->
         </form>
@@ -551,29 +552,35 @@
         $margin1 = "125px";
         $margin2 = "110px";
     }
-    for ($i=0;$i < count($surat);$i++){
-        $namasurat1 = str_replace("'", "petik", $namasurat[$i]);
-        if (isset($akhirsoal[$i])) {
-            echo "<a target='_blank' href='". base_url('index.php/Mushaf/view?surat='.$surat[$i].'&ayat='.$ayat[$i])."'>";
-        } else {
-            echo "<a target='_blank' href='". base_url('index.php/Mushaf/view?surat='.$surat[$i].'&ayat='.$ayat[$i])."'>";
-            //echo "<a target='_blank' href='mushaf.php?kanan=$kanan[$i]&surah=$surat[$i]&ayat=$ayat[$i]&namasurat=$namasurat1'>";
+    if (isset($surat)) {
+        for ($i = 0; $i < count($surat); $i++) {
+            $namasurat1 = str_replace("'", "petik", $namasurat[$i]);
+            if (isset($akhirsoal[$i])) {
+                echo "<a target='_blank' href='" . base_url('index.php/Mushaf/view?surat=' . $surat[$i] . '&ayat=' . $ayat[$i]) . "'>";
+            } else {
+                echo "<a target='_blank' href='" . base_url('index.php/Mushaf/view?surat=' . $surat[$i] . '&ayat=' . $ayat[$i]) . "'>";
+                //echo "<a target='_blank' href='mushaf.php?kanan=$kanan[$i]&surah=$surat[$i]&ayat=$ayat[$i]&namasurat=$namasurat1'>";
+            }
+            ?>
+            <div class="col-xs-3 col-md-3" style="margin-left: <?php if ($i == 0 || $i == 3) {
+                echo $margin;
+            } ?>;
+                    margin-top: <?php if ($i >= 3) {
+                echo $margin2;
+            } ?>;">
+                <img src="<?php echo $gambar[$i]; ?>" class="img-responsive center-block">
+                <!--                        <dl class="palette palette-alizarin" style="height: 140px">-->
+                <dt>
+                    <div class="tengah2"><?php
+                        if (isset($surat[$i])) {
+                            echo "QS: " . $namasurat[$i] . " " . $surat[$i] . " : " . $ayat[$i];
+                        }
+                        ?></div>
+                </dt>
+                <!--</dl>-->
+            </div>
+            <?php
         }
-        ?>
-    <div class="col-xs-3 col-md-3" style="margin-left: <?php if($i == 0 || $i == 3){ echo $margin; }?>;
-            margin-top: <?php if($i >= 3) {echo $margin2;} ?>;">
-        <img src="<?php echo $gambar[$i]; ?>" class="img-responsive center-block">
-        <!--                        <dl class="palette palette-alizarin" style="height: 140px">-->
-        <dt>
-            <div class="tengah2"><?php
-                if (isset($surat[$i])) {
-                    echo "QS: " . $namasurat[$i] . " " . $surat[$i] . " : " . $ayat[$i];
-                }
-                ?></div>
-        </dt>
-        <!--</dl>-->
-    </div>
-    <?php
     }
     ?>
 </div>

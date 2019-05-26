@@ -18,10 +18,13 @@ class Mushaf_model extends CI_Model
     function getHalaman($surat, $ayat)
     {
         $this->db->order_by('no_halaman', 'desc');
-        $halaman = $this->db->get_where($this->_table, ['nosurat'=>$surat, 'ayatawal'=>$ayat])->row();
+        $this->db->where('nosurat', $surat);
+        $this->db->where('ayatawal <=', $ayat);
+        $halaman = $this->db->get($this->_table)->row();
         if(!$halaman){
+            $surat = $surat - 1;
             $this->db->order_by('no_halaman', 'desc');
-            $halaman = $this->db->get_where($this->_table, ['nosurat'=>$surat])->row();
+            $halaman = $this->db->get_where($this->_table, ['nosurat<='=>$surat])->row();
         }
         return $halaman;
     }
