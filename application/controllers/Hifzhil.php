@@ -47,7 +47,7 @@ class Hifzhil extends CI_Controller
         $this->load->view('hifzhil', $data);
     }
 
-    public function otomatis($pilihan = 1, $data)
+    public function otomatis($pilihan = 1, $data = null)
     {
         $data["pengaturan"] = $this->pengaturan_model->getPengaturan(1);
         $data["kategori"] = $this->kategori_model->getKategoriHifzhilOtomatis();
@@ -74,7 +74,10 @@ class Hifzhil extends CI_Controller
     {
         $post = $this->input->post();
         $getkat = $post['kategori'];
-        $where = $this->getWhere($getkat, 0);
+        $pecah = explode("_", $getkat);
+        $kategori = $pecah[0];
+        $pilihan = $pecah[1];
+        $where = $this->getWhere($kategori, 0);
 
 
         $pengaturan = $this->pengaturan_model->getPengaturan(1);
@@ -100,15 +103,12 @@ class Hifzhil extends CI_Controller
         $data['namasurat'] = $namasurat;
         $data['kanan'] = $kanan;
         $data['gambar'] = $gambar;
-        $this->otomatis(1, $data);
+        $this->otomatis($pilihan, $data);
 
     }
 
-    public function getWhere($getkat, $type = 0)
+    public function getWhere($kategori, $type = 0)
     {
-        $pecah = explode("_", $getkat);
-        $kategori = $pecah[0];
-
         if (strpos($kategori, "-") != false) {
             $kat = explode("-", $kategori);
             $where = "juz >= $kat[0] AND juz <= $kat[1]";
