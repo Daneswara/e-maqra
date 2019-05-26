@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Login extends CI_Controller
+class Admin extends CI_Controller
 {
 
     /**
@@ -19,13 +19,16 @@ class Login extends CI_Controller
      * map to /index.php/welcome/<method_name>
      * @see https://codeigniter.com/user_guide/general/urls.html
      */
-
     public function __construct()
     {
         parent::__construct();
-        $this->load->model("user_model");
         $this->load->model("pengaturan_model");
         $this->load->library('form_validation');
+
+        $username = $this->session->userdata('username');
+        if(!isset($username)){
+            redirect(base_url('index.php/Login'));
+        }
     }
 
     public function index()
@@ -34,23 +37,6 @@ class Login extends CI_Controller
         $acara = $data['pengaturan']->acara;
         $acara = str_replace("<petik>", "'", $acara);
         $data['acara'] = $acara;
-        $this->load->view('login', $data);
-    }
-
-    public function proses()
-    {
-        $user = $this->user_model;
-        $validation = $this->form_validation;
-        $validation->set_rules($user->rules());
-
-        if ($validation->run()) {
-            if ($user->cekUserLogin()) {
-                redirect(base_url());
-            } else if ($user->cekUserLoginAdmin()) {
-                redirect(base_url('index.php/Admin'));
-            } else {
-                redirect(base_url('index.php/Login'));
-            }
-        }
+        $this->load->view('admin', $data);
     }
 }
